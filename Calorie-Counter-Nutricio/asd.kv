@@ -1,0 +1,615 @@
+<StartingPage>:
+    name: "starting"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/startingpage.jpg'
+    FloatLayout:
+        Label:
+            text: "N"
+            font_size: 130
+            bold: True
+            pos_hint: {"x":0.32, "top":0.8}
+            size_hint: 0.35, 0.15
+        Label:
+            text: "Welcome to Nutricio"
+            pos_hint: {"x": 0.29 , "y":0.5}
+            size_hint: 0.4, 0.15
+        Label:
+            text: "\"Better Health For Better Future\""
+            pos_hint: {"x":0.32, "y":0.42}
+            size_hint: 0.35, 0.24
+        Button:
+            pos_hint:{"x":0.34,"y":0.4}
+            size_hint: 0.33, 0.05
+            text: "GET STARTED"
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            on_release:
+                root.manager.transition.direction = "right"
+                root.start()
+
+<LoginPage>:
+    name: "login"
+    username: username
+    password: password
+    canvas:
+        Rectangle:
+            pos: 0,210
+            size: 382,320
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Login.png'
+    FloatLayout:
+        Label:
+            text: "N"
+            font_size: 130
+            bold: True
+            pos_hint: {"x":0.65, "top":0.96}
+            size_hint: 0.35, 0.15
+        Label:
+            text: "Welcome to Nutricio"
+            font_size: 20
+            color: 0,0,0,1
+            pos_hint: {"x": 0.29 , "y":0.6}
+            size_hint: 0.4, 0.15
+        TextInput:
+            id:username
+            multiline: False
+            hint_text: "Email or Username"
+            pos_hint: {"x":0.1, "top":0.63}
+            size_hint: 0.8, 0.05
+        TextInput:
+            id:password
+            multiline: False
+            hint_text: "Password"
+            pos_hint: {"x":0.1, "top":0.55}
+            size_hint: 0.8, 0.05
+        Button:
+            pos_hint:{"x":0.1,"y":0.4}
+            size_hint: 0.8, 0.05
+            text: "Sign in"
+            color: 1,1,1,1
+            background_normal:''
+            background_color: 251/255,178/255,67/255,1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.loginBtn()
+        Button:
+            pos_hint:{"x":0.1,"y":0.33}
+            size_hint: 0.8, 0.05
+            text: "Don\'t have an account? Register Now!"
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+        Label:
+            text: "Login with"
+            bold: True
+            pos_hint: {"x": 0.29 , "y":0.1}
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Facebook_Icon.png'
+            background_down: 'Background/Facebook_Icon.png'
+            size_hint: 0.135, 0.073
+            pos_hint: {"x":0.3, "y":0.06}
+            on_press:
+                root.facebook()
+        Button:
+            background_normal: 'Background/Google_Icon.png'
+            background_down: 'Background/Google_Icon.png'
+            size_hint: 0.135, 0.073
+            pos_hint: {"x":0.54, "y":0.06}
+            on_press:
+                root.google()
+
+<SignUpPage>:
+    name: "signup"
+    firstname: firstname
+    lastname: lastname
+    dateofbirth: dateofbirth
+    weight: weight
+    tall: tall
+    email: email
+    password: password
+
+    canvas:
+        Rectangle:
+            pos: 0,0
+            size: 382,570
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Sign Up.png'
+
+    FloatLayout:
+        Label:
+            text: "Sign Up"
+            font_size: 25
+            bold: True
+            pos_hint: {"x":0.35, "top":1}
+            size_hint: 0.35, 0.15
+        Button:
+            background_normal: 'Background/Profile_Icon.png'
+            background_down: 'Background/Profile_Icon.png'
+            size_hint: 0.2, 0.11
+            pos_hint: {"x":0.42, "top":0.82}
+            on_press:
+                root.profile()
+        TextInput:
+            size_hint: 0.8, 0.05
+            pos_hint: {"x":0.1, "top":0.68}
+            hint_text: "First Name"
+            id: firstname
+            multiline: False
+        TextInput:
+            size_hint: 0.8, 0.05
+            pos_hint: {"x":0.1, "top":0.61}
+            hint_text: "Last Name"
+            id: lastname
+            multiline: False
+        TextInput:
+            pos_hint: {"x":0.1, "top":0.54}
+            size_hint: 0.8, 0.05
+            hint_text: "Date of Birth"
+            id: dateofbirth
+            multiline: False
+        TextInput:
+            size_hint: 0.38, 0.05
+            pos_hint: {"x":0.1, "top":0.73-0.13*2}
+            hint_text: "Weight"
+            id: weight
+            multiline: False
+        TextInput:
+            pos_hint: {"x":0.52, "top":0.73-0.13*2}
+            size_hint: 0.38, 0.05
+            hint_text: "Height"
+            id: tall
+            multiline: False
+        TextInput:
+            size_hint: 0.8, 0.05
+            pos_hint: {"x":0.1, "top":0.4}
+            hint_text: "Email"
+            id: email
+            multiline: False
+        TextInput:
+            pos_hint: {"x":0.1, "top":0.33}
+            size_hint: 0.8, 0.05
+            hint_text: "Password"
+            id: password
+            multiline: False
+        Button:
+            pos_hint:{"x":0.1,"y":0.18}
+            size_hint: 0.8, 0.05
+            text: "Already have an account? Log in now!"
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+        Button:
+            pos_hint:{"x":0.1,"y":0.12}
+            size_hint: 0.8, 0.05
+            text: "Sign Up"
+            background_normal:''
+            background_color: 251/255,178/255,67/255,1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.submit()
+        Label:
+            text: "By Proceeding you also agree to the Terms"
+            font_size: 12
+            color: 0,0,0,1
+            pos_hint: {"x": 0.28 , "y":0.02}
+            size_hint: 0.4, 0.15
+        Label:
+            text: "and Privacy Policy"
+            font_size: 12
+            color: 0,0,0,1
+            pos_hint: {"x": 0.32 , "y":0.00}
+            size_hint: 0.4, 0.15
+
+<HomePage>:
+    name: "home"
+
+
+    canvas:
+        Rectangle:
+            pos: 0,500
+            size: 382,320
+        Rectangle:
+            pos: 0,0
+            size: 382,78
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Login.png'
+    FloatLayout:
+        Button:
+            text: "Log Out"
+            size_hint: 0.2, 0.04
+            color: 123/255, 177/255, 57/255, 1
+            background_color: 255,255,255,0.9
+            pos_hint: {"x":0.8, "top":1}
+            on_press:
+                root.logOut()
+        Label:
+            text: "N"
+            font_size: 130
+            color: 123/255, 177/255, 57/255,1
+            bold: True
+            pos_hint: {"x":0.32, "top":0.94}
+            size_hint: 0.35, 0.15
+        Label:
+            text: "Nutricio"
+            color: 123/255, 177/255, 57/255,1
+            pos_hint: {"x": 0.29 , "y":0.7}
+            size_hint: 0.4, 0.15
+        Label:
+            text: "\"Better Health For Better Future\""
+            color: 123/255, 177/255, 57/255,1
+            pos_hint: {"x":0.32, "y":0.62}
+            size_hint: 0.35, 0.24
+        FloatLayout:
+            Button:
+                background_normal: 'Background/Scan_Icon.png'
+                background_down: 'Background/Scan2_Icon.png'
+                size_hint: 0.4, 0.2
+                pos_hint: {"x":0.06, "y":0.46}
+                on_press:
+                    root.scan()
+            Label:
+                text: "Scan"
+                pos_hint: {"x": 0.06, "y":0.37}
+                size_hint: 0.4, 0.15
+            Button:
+                background_normal: 'Background/Report_Icon.png'
+                background_down: 'Background/Report2_Icon.png'
+                size_hint: 0.4, 0.2
+                pos_hint: {"x":0.54, "y":0.46}
+                on_press:
+                    root.report()
+            Label:
+                text: "Report"
+                pos_hint: {"x":0.54, "y":0.37}
+                size_hint: 0.4, 0.15
+            Button:
+                background_normal: 'Background/Calculator_Icon.png'
+                background_down: 'Background/Calculator2_Icon.png'
+                size_hint: 0.4, 0.2
+                pos_hint: {"x":0.06, "y":0.19}
+                on_press:
+                    root.calculator()
+            Label:
+                text: "Calculator"
+                pos_hint: {"x":0.06, "y":0.1}
+                size_hint: 0.4, 0.15
+            Button:
+                background_normal: 'Background/Setting_Icon.png'
+                background_down: 'Background/Setting_Icon2.png'
+                size_hint: 0.4, 0.2
+                pos_hint: {"x":0.54, "y":0.19}
+                on_press:
+                    root.setting()
+            Label:
+                text: "Setting"
+                pos_hint: {"x":0.54, "y":0.1}
+                size_hint: 0.4, 0.15
+
+        Button:
+            background_normal: 'Background/Home_Icon.png'
+            background_down: 'Background/Home2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.14, "y":0.04}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Label:
+            text: "Home"
+            pos_hint: {"x":0, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Analytics_Icon.png'
+            background_down: 'Background/Analytics2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.44, "y":0.04}
+            on_press:
+                root.report()
+        Label:
+            text: "Report"
+            pos_hint: {"x":0.3, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Editprofile_Icon.png'
+            background_down: 'Background/Editprofile2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.74, "y":0.04}
+            on_press:
+                root.setting()
+        Label:
+            text: "Profile"
+            pos_hint: {"x":0.59, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+
+<SettingPage>:
+    name: "setting"
+    canvas:
+        Rectangle:
+            pos: 0,0
+            size: 382,78
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Sign Up.png'
+    FloatLayout:
+        Label:
+            text: "Setting"
+            font_size: 25
+            bold: True
+            pos_hint: {"x":0.35, "top":1}
+            size_hint: 0.35, 0.15
+        Button:
+            text: "Back"
+            size_hint: 0.2, 0.04
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            pos_hint: {"x":0, "top":1}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Button:
+            background_normal: 'Background/Home_Icon.png'
+            background_down: 'Background/Home2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.14, "y":0.04}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Label:
+            text: "Home"
+            pos_hint: {"x":0, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Analytics_Icon.png'
+            background_down: 'Background/Analytics2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.44, "y":0.04}
+            on_press:
+                root.report()
+        Label:
+            text: "Report"
+            pos_hint: {"x":0.3, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Editprofile_Icon.png'
+            background_down: 'Background/Editprofile2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.74, "y":0.04}
+            on_press:
+                root.setting()
+        Label:
+            text: "Profile"
+            pos_hint: {"x":0.59, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+
+<ReportPage>:
+    name: "report"
+    canvas:
+        Rectangle:
+            pos: 0,0
+            size: 382,78
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Sign Up.png'
+    FloatLayout:
+        Label:
+            text: "Report"
+            font_size: 25
+            bold: True
+            pos_hint: {"x":0.35, "top":1}
+            size_hint: 0.35, 0.15
+        Button:
+            text: "Back"
+            size_hint: 0.2, 0.04
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            pos_hint: {"x":0, "top":1}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Button:
+            background_normal: 'Background/Home_Icon.png'
+            background_down: 'Background/Home2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.14, "y":0.04}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Label:
+            text: "Home"
+            pos_hint: {"x":0, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Analytics_Icon.png'
+            background_down: 'Background/Analytics2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.44, "y":0.04}
+            on_press:
+                root.report()
+        Label:
+            text: "Report"
+            pos_hint: {"x":0.3, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Editprofile_Icon.png'
+            background_down: 'Background/Editprofile2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.74, "y":0.04}
+            on_press:
+                root.setting()
+        Label:
+            text: "Profile"
+            pos_hint: {"x":0.59, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+
+<CalculatorPage>:
+    name: "calculator"
+    canvas:
+        Rectangle:
+            pos: 0,500
+            size: 382,250
+        Rectangle:
+            pos: 0,0
+            size: 382,78
+        Rectangle:
+            pos: 100,500
+            size: 190,88
+            source: 'Background/Food_Image.png'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Sign Up.png'
+    FloatLayout:
+        Label:
+            text: "Nutricio Calculator"
+            font_size: 25
+            color: 123/255, 177/255, 57/255,1
+            bold: True
+            pos_hint: {"x":0.35, "top":1}
+            size_hint: 0.35, 0.15
+        Label:
+            text: "What did you eat today?"
+            font_size: 16
+            color: 0,0,0,1
+            pos_hint: {"x":0.35, "top":0.93}
+            size_hint: 0.35, 0.15
+        Button:
+            text: "Back"
+            size_hint: 0.2, 0.04
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            pos_hint: {"x":0, "top":1}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Button:
+            background_normal: 'Background/Home_Icon.png'
+            background_down: 'Background/Home2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.14, "y":0.04}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Label:
+            text: "Home"
+            pos_hint: {"x":0, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Analytics_Icon.png'
+            background_down: 'Background/Analytics2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.44, "y":0.04}
+            on_press:
+                root.report()
+        Label:
+            text: "Report"
+            pos_hint: {"x":0.3, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Editprofile_Icon.png'
+            background_down: 'Background/Editprofile2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.74, "y":0.04}
+            on_press:
+                root.setting()
+        Label:
+            text: "Profile"
+            pos_hint: {"x":0.59, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+
+<SettingPage>:
+    name: "setting"
+    canvas:
+        Rectangle:
+            pos: 0,0
+            size: 382,78
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'Background/Sign Up.png'
+    FloatLayout:
+        Label:
+            text: "Setting"
+            font_size: 25
+            bold: True
+            pos_hint: {"x":0.35, "top":1}
+            size_hint: 0.35, 0.15
+        Button:
+            text: "Back"
+            size_hint: 0.2, 0.04
+            color: 0,0,0,1
+            background_color: 255,255,255,0.9
+            pos_hint: {"x":0, "top":1}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Button:
+            background_normal: 'Background/Home_Icon.png'
+            background_down: 'Background/Home2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.14, "y":0.04}
+            on_press:
+                root.manager.transition.direction = "left"
+                root.home()
+        Label:
+            text: "Home"
+            pos_hint: {"x":0, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Analytics_Icon.png'
+            background_down: 'Background/Analytics2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.44, "y":0.04}
+            on_press:
+                root.report()
+        Label:
+            text: "Report"
+            pos_hint: {"x":0.3, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15
+        Button:
+            background_normal: 'Background/Editprofile_Icon.png'
+            background_down: 'Background/Editprofile2_Icon.png'
+            size_hint: 0.1, 0.05
+            pos_hint: {"x":0.74, "y":0.04}
+            on_press:
+                root.setting()
+        Label:
+            text: "Profile"
+            pos_hint: {"x":0.59, "top":0.1}
+            color: 123/255, 177/255, 57/255, 1
+            size_hint: 0.4, 0.15

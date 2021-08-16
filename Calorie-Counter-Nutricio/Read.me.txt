@@ -1,0 +1,2 @@
+Resource Code Train Model dari link dibawah ini:
+https://colab.research.google.com/drive/1IJaACcgtC9GZZ4SVoDmkHbYaBbJbaZdw?usp=sharing
